@@ -27,7 +27,12 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection == 'paper' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'paper')) {
         console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    } else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
+    (playerSelection == 'paper' && computerSelection == 'scissors') ||
+    (playerSelection == 'scissors' && computerSelection == 'rock')) {
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
     }
 }
 
 let computerSelection = computerPlay();
+playRound('rock', 'scissors');
