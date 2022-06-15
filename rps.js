@@ -17,3 +17,8 @@ function computerPlay() {
 }
 
 // console.log(computerPlay());
+
+// Single Round of Rock Paper Scissors
+function singleRound(playerSelection, computerSelection) {
+    
+}
