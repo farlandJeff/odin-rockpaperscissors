@@ -6,19 +6,28 @@ function computerPlay() {
     // Return Rock, Paper, or Scissors depending on which number
     switch(num) {
         case 0:
-            return 'Rock';
+            return 'rock';
 
         case 1:
-            return 'Paper';
+            return 'paper';
         
         case 2:
-            return 'Scissors';
+            return 'scissors';
     }
 }
 
-// console.log(computerPlay());
-
 // Single Round of Rock Paper Scissors
-function singleRound(playerSelection, computerSelection) {
-    
+function playRound(playerSelection, computerSelection) {
+    // Changes player's selection to lower case
+    // This is to make it case in-sensitive
+    playerSelection = playerSelection.toLowerCase();
+
+    // Conditionals based on if the player wins, loses, or ties
+    if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
+    (playerSelection == 'paper' && computerSelection == 'rock') ||
+    (playerSelection == 'scissors' && computerSelection == 'paper')) {
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+    }
 }
+
+let computerSelection = computerPlay();
