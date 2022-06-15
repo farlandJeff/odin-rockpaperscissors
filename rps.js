@@ -22,25 +22,50 @@ function playRound(playerSelection, computerSelection) {
     // This is to make it case in-sensitive
     playerSelection = playerSelection.toLowerCase();
 
-    let winner = null;
+    let outcome = null;
     // Conditionals based on if the player wins, loses, or ties
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
     (playerSelection == 'paper' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        winner = `You Win! ${playerSelection} beats ${computerSelection}`;
+        outcome = 'win';
+        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
     } else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
     (playerSelection == 'paper' && computerSelection == 'scissors') ||
     (playerSelection == 'scissors' && computerSelection == 'rock')) {
-        winner = `You Lose! ${computerSelection} beats ${playerSelection}`;
+        outcome = 'lose';
+        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
     } else if ((playerSelection == 'rock' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'scissors') ||
     (playerSelection == 'paper' && computerSelection == 'paper')) {
-        winner = `It's a tie! both picked ${playerSelection}`;
+        outcome = 'tie';
+        console.log(`It's a tie! both picked ${playerSelection}`);
     } else {
-        winner = 'Invalid input. Choose Rock, Paper, or Scissors!';
+        console.log('Invalid input. Choose Rock, Paper, or Scissors!');
+        playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
     }
 
-    return winner;
+    // Returns a string of whether the user wins, loses, or ties
+    return outcome;
 }
 
-console.log(playRound(prompt('Rock, Paper, or Scissors?'), computerPlay()))
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 1; i <= 5; i++) {
+        console.log(`Round ${i}!`);
+        let outcome = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
+        if (outcome == 'win') {
+            playerScore++;
+        } else if (outcome == 'lose') {
+            computerScore++;
+        } else if (outcome == 'tie') {
+            playerScore++;
+            computerScore++;
+        }
+        console.log(`SCORE: ${playerScore} - ${computerScore} !!!`);
+
+    }
+}
+
+game();
