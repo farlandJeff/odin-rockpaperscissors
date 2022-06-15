@@ -22,21 +22,25 @@ function playRound(playerSelection, computerSelection) {
     // This is to make it case in-sensitive
     playerSelection = playerSelection.toLowerCase();
 
+    let winner = null;
     // Conditionals based on if the player wins, loses, or ties
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
     (playerSelection == 'paper' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        console.log(`You Win! ${playerSelection} beats ${computerSelection}`);
+        winner = `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if ((playerSelection == 'rock' && computerSelection == 'paper') ||
     (playerSelection == 'paper' && computerSelection == 'scissors') ||
     (playerSelection == 'scissors' && computerSelection == 'rock')) {
-        console.log(`You Lose! ${computerSelection} beats ${playerSelection}`);
+        winner = `You Lose! ${computerSelection} beats ${playerSelection}`;
     } else if ((playerSelection == 'rock' && computerSelection == 'rock') ||
     (playerSelection == 'scissors' && computerSelection == 'scissors') ||
     (playerSelection == 'paper' && computerSelection == 'paper')) {
-        console.log(`It's a tie! both picked ${playerSelection}`);
+        winner = `It's a tie! both picked ${playerSelection}`;
+    } else {
+        winner = 'Invalid input. Choose Rock, Paper, or Scissors!';
     }
+
+    return winner;
 }
 
-let computerSelection = computerPlay();
-playRound('rock', 'scissors');
+console.log(playRound(prompt('Rock, Paper, or Scissors?'), computerPlay()))
