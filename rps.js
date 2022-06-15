@@ -41,6 +41,7 @@ function playRound(playerSelection, computerSelection) {
         console.log(`It's a tie! both picked ${playerSelection}`);
     } else {
         console.log('Invalid input. Choose Rock, Paper, or Scissors!');
+        // Makes the user pick again if they had a bad input
         playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
     }
 
@@ -48,10 +49,12 @@ function playRound(playerSelection, computerSelection) {
     return outcome;
 }
 
+// Goes through five rounds and keeps score of whoever wins
 function game() {
     let playerScore = 0;
     let computerScore = 0;
 
+    // Five rounds of the game
     for (let i = 1; i <= 5; i++) {
         console.log(`Round ${i}!`);
         let outcome = playRound(prompt('Rock, Paper, or Scissors?'), computerPlay());
@@ -63,8 +66,8 @@ function game() {
             playerScore++;
             computerScore++;
         }
-        console.log(`SCORE: ${playerScore} - ${computerScore} !!!`);
 
+        console.log(`SCORE: ${playerScore} - ${computerScore} !!!`);
     }
 }
 
