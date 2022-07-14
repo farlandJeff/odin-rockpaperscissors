@@ -71,4 +71,12 @@ function game() {
     }
 }
 
-game();
+//game();
+
+let rockBtn = document.querySelector('.rockBtn');
+let paperBtn = document.querySelector('.paperBtn');
+let scissorBtn = document.querySelector('.scissorBtn');
+
+rockBtn.addEventListener('click', () => {
+    console.log(playRound('rock', computerPlay()));
+});
