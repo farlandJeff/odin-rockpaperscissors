@@ -80,3 +80,11 @@ let scissorBtn = document.querySelector('.scissorBtn');
 rockBtn.addEventListener('click', () => {
     console.log(playRound('rock', computerPlay()));
 });
+
+paperBtn.addEventListener('click', () => {
+    console.log(playRound('paper', computerPlay()));
+});
+
+scissorBtn.addEventListener('click', () => {
+    console.log(playRound('scissors', computerPlay()));
+});
